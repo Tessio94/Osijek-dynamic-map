@@ -1,3 +1,7 @@
 {
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"maplibre-gl": "^5.20.0",
+		"nodemon": "^3.1.14"
+	}
 }

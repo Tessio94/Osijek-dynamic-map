@@ -1,13 +1,10 @@
-const middleOfMap = [15.22853958963751, 44.113604353630114];
-
-const oil = document.querySelector("#oil");
-const pauk = document.querySelector("#pauk");
+const middleOfMap = [18.69680928071636, 45.55459080341755];
 
 async function init() {
 	const map = new maplibregl.Map({
 		style: "https://tiles.openfreemap.org/styles/liberty",
 		center: middleOfMap,
-		zoom: 15,
+		zoom: 14,
 		container: "map",
 	});
 
@@ -17,12 +14,19 @@ async function init() {
 			visualizeRoll: true,
 			showZoom: true,
 			showCompass: true,
-		})
+		}),
 	);
 
 	map.doubleClickZoom.disable();
 
-	/*----------------------fetching polygon json data...............*/
+	map.on("click", (e) => {
+		const lng = e.lngLat.lng;
+		const lat = e.lngLat.lat;
+
+		console.log([lng, lat]);
+	});
+
+	/*----------------------fetching lines json data...............*/
 	async function fetchData(path) {
 		const response = await fetch(path);
 		if (!response.ok) {
@@ -36,11 +40,7 @@ async function init() {
 		fetchData("./data/zone/zona0.json"),
 		fetchData("./data/zone/zona1.json"),
 		fetchData("./data/zone/zona2.json"),
-		fetchData("./data/zone/zona3.json"),
-		fetchData("./data/zone/zona4.json"),
-		fetchData("./data/zone/kolodvor.json"),
 	]);
-	// console.log(results);
 
 	/*----------------------adding json data...............*/
 	map.addSource("polygon0", {
@@ -58,89 +58,41 @@ async function init() {
 		data: results[2],
 	});
 
-	map.addSource("polygon3", {
-		type: "geojson",
-		data: results[3],
-	});
-
-	map.addSource("polygon4", {
-		type: "geojson",
-		data: results[4],
-	});
-
-	map.addSource("polygon5", {
-		type: "geojson",
-		data: results[5],
-	});
-
-	/*----------------------adding layers-----------------*/
+	/*----------------------adding lines-----------------*/
 	map.addLayer({
 		id: "polygon-layer0",
-		type: "fill",
+		type: "line",
 		source: "polygon0",
-		layout: {},
+		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
-			"fill-color": "#ba0909",
-			"fill-opacity": 0.9,
+			"line-color": "#ba0909",
+			"line-width": 5,
 		},
 	});
 
 	map.addLayer({
 		id: "polygon-layer1",
-		type: "fill",
+		type: "line",
 		source: "polygon1",
-		layout: {},
+		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
-			"fill-color": "#0051ff",
-			"fill-opacity": 0.9,
+			"line-color": "#000000",
+			"line-width": 5,
 		},
 	});
 
 	map.addLayer({
 		id: "polygon-layer2",
-		type: "fill",
+		type: "line",
 		source: "polygon2",
-		layout: {},
+		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
-			"fill-color": "#f2af13",
-			"fill-opacity": 0.9,
+			"line-color": "#1322f2",
+			"line-width": 5,
 		},
 	});
 
-	map.addLayer({
-		id: "polygon-layer3",
-		type: "fill",
-		source: "polygon3",
-		layout: {},
-		paint: {
-			"fill-color": "#96249c",
-			"fill-opacity": 0.9,
-		},
-	});
-
-	map.addLayer({
-		id: "polygon-layer4",
-		type: "fill",
-		source: "polygon4",
-		layout: {},
-		paint: {
-			"fill-color": "#0da32e",
-			"fill-opacity": 0.9,
-		},
-	});
-
-	map.addLayer({
-		id: "polygon-layer5",
-		type: "fill",
-		source: "polygon5",
-		layout: {},
-		paint: {
-			"fill-color": "#14a1a3",
-			"fill-opacity": 0.9,
-		},
-	});
-
-	/*-----------------adding parking machine markers--------------------------*/
+	/*-----------------adding circle and points--------------------------*/
 	async function fetchMarkerData(path) {
 		const response = await fetch(path);
 		if (!response.ok) {
@@ -150,362 +102,124 @@ async function init() {
 		return data;
 	}
 
-	const markerGeoData = await fetchMarkerData("./data/aparati/aparatiGeo.json");
-	// console.log(markerGeoData);
+	const pointsData0 = await fetchMarkerData("./data/zone/zona0points.json");
+	const pointsData1 = await fetchMarkerData("./data/zone/zona1points.json");
+	const pointsData2 = await fetchMarkerData("./data/zone/zona2points.json");
+	const arrowPoints = await fetchMarkerData("./data/zone/arrowEndpoints.json");
+	const circlePoints = await fetchMarkerData(
+		"./data/zone/circleGradientEndpoints.json",
+	);
+
+	map.addSource("markers0", {
+		type: "geojson",
+		data: pointsData0,
+	});
+
+	map.addLayer({
+		id: "markers0",
+		type: "circle",
+		source: "markers0",
+		paint: {
+			"circle-radius": 7,
+			"circle-color": "#ba0909",
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff",
+		},
+	});
+
+	map.addSource("markers1", {
+		type: "geojson",
+		data: pointsData1,
+	});
+
+	map.addLayer({
+		id: "markers1",
+		type: "circle",
+		source: "markers1",
+		paint: {
+			"circle-radius": 7,
+			"circle-color": "#000000",
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff",
+		},
+	});
+
+	map.addSource("markers2", {
+		type: "geojson",
+		data: pointsData2,
+	});
+
+	map.addLayer({
+		id: "markers2",
+		type: "circle",
+		source: "markers2",
+		paint: {
+			"circle-radius": 7,
+			"circle-color": "#1322f2",
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff",
+		},
+	});
 
 	const el = document.createElement("img");
-	el.src = "./icons/car-park.svg";
-	// el.className = "sms_marker";
+	el.src = "./icons/arrow.svg";
 
 	el.onload = () => {
 		map.addImage("custom-marker", el);
 
-		// Add a data source containing one point feature.
-		map.addSource("markers", {
+		map.addSource("arrowEndpoints", {
 			type: "geojson",
-			data: markerGeoData,
+			data: arrowPoints,
 		});
 
-		// Add a layer to use the image to represent the data.
 		map.addLayer({
-			id: "markers",
+			id: "arrowEndpoints",
 			type: "symbol",
-			source: "markers",
+			source: "arrowEndpoints",
 			layout: {
 				"icon-image": "custom-marker",
 				"icon-overlap": "always",
-				"icon-size": 0.025,
+				"icon-size": 1.5,
+				"icon-rotate": ["+", ["get", "bearing"], 30],
+				"icon-rotation-alignment": "map",
 			},
 		});
 	};
 
-	const popup = new maplibregl.Popup({
-		closeButton: false,
-		closeOnClick: false,
-	});
+	const el2 = document.createElement("img");
+	el2.src = "./icons/circleGradient.svg";
 
-	map.on("mouseenter", "markers", (e) => {
-		// console.log(e);
+	el2.onload = () => {
+		map.addImage("custom-marker2", el2);
 
-		// Change the cursor style as a UI indicator.
-		map.getCanvas().style.cursor = "pointer";
-
-		const coordinates = e.features[0].geometry.coordinates.slice();
-		const description = e.features[0].properties;
-		// console.log(description);
-
-		let backgroundColor;
-		let textColor;
-
-		switch (description.zone) {
-			case 1:
-				backgroundColor = "#0051ff";
-				break;
-			case 2:
-				backgroundColor = "#f2af13";
-				textColor = "#707070";
-				break;
-			case 3:
-				backgroundColor = "#96249c";
-				break;
-			case 4:
-				backgroundColor = "#0da32e";
-				break;
-			default:
-				backGroundColor = "red";
-				break;
-		}
-
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-
-		// Populate the popup and set its coordinates
-		popup
-			.setLngLat(coordinates)
-			.setHTML(
-				`<div class="custom-popup">
-			 			  <h4>${description.place}</h4>
-			 			  <p>SMS parking: ${description.SMS}</p>
-			 			  <div>
-			 			     <p style="background-color: ${backgroundColor}; color:${textColor}">ZONA ${description.zone}</p>
-			 			 	 <p>Broj automata: <span>${description.broj}</span></p>
-			 			  </div>
-			 			</div>
-			 			`
-			)
-			.addTo(map);
-	});
-
-	map.on("mouseleave", "markers", () => {
-		map.getCanvas().style.cursor = "";
-		popup.remove();
-	});
-
-	/*--------------adding oil and pauk markers------------------------*/
-	// new maplibregl.Marker({ element: oil })
-	// 	.setLngLat([15.228197268489417, 44.11298363660206])
-	// 	.addTo(map);
-
-	// new maplibregl.Marker({ element: pauk })
-	// 	.setLngLat([15.231462526517115, 44.10868140866365])
-	// 	.addTo(map);
-
-	/*  pauk marker click functionality */
-	const paukGeoData = await fetchMarkerData("./data/aparati/pauk.json");
-
-	const paukEl = document.createElement("img");
-	paukEl.src = "./icons/towtruck.png";
-
-	paukEl.onload = () => {
-		map.addImage("pauk-marker", paukEl);
-
-		map.addSource("markerPauk", {
+		map.addSource("circleGradientEndpoints", {
 			type: "geojson",
-			data: paukGeoData,
+			data: circlePoints,
 		});
 
 		map.addLayer({
-			id: "markerPauk",
+			id: "circleGradientEndpoints",
 			type: "symbol",
-			source: "markerPauk",
+			source: "circleGradientEndpoints",
 			layout: {
-				"icon-image": "pauk-marker",
+				"icon-image": "custom-marker2",
 				"icon-overlap": "always",
+				"icon-size": 0.65,
+				"icon-rotate": ["+", ["get", "bearing"], 30],
+				"icon-rotation-alignment": "map",
 			},
 		});
 	};
-
-	const zonaInfoContainer2 = document.createElement("div");
-	zonaInfoContainer2.className = "zona_container";
-	zonaInfoContainer2.dataset.value = 5;
-
-	zonaInfoContainer2.innerHTML = `
-			<div>
-				<img src="./icons/pauk.png" alt="pauk ikona" width="50px" height="23px"/>
-				<h3>Pauk služba</h3>
-			</div>
-			<div class="lokacija">
-				<p>Lokacija odlagališta vozila:</p>
-				<p>Marka Marulića 4</p>
-				<p>23000 Zadar, Hrvatska</p>
-				<p>(parkiralište RAVNICE nasuprot bolnice)</p>	
-			</div>
-			<div>
-				<p>Informacije o premještenim vozilima:</p>
-				<p>Tel: 023/302-100</p>
-			</div>
-			<div>
-				<p>Reklamacija o premještenim vozilima:</p>
-				<p>Obale i lučice d.o.o.</p>
-				<p>Medulićeva 2/II</p>
-			</div>
-			<div>
-				<p>Radno vrijeme:</p>
-				<p>PON - PET od 08:00 do 15:00 h</p>
-				<p>Email: <a href="https://info.pauk@oil.hr">info.pauk@oil.hr</a></p>
-			</div>
-			<div>
-				<img src="./icons/phone.svg" alt="mobitel ikona" width="40px" height="40px"/>
-				<p>023/312-297</p>
-			</div>`;
-
-	document.getElementById("map").appendChild(zonaInfoContainer2);
-
-	/*----------------------oil marker click functionality---------------*/
-	const oilGeoData = await fetchMarkerData("./data/aparati/oil.json");
-	// console.log(oilGeoData);
-
-	const oilEl = document.createElement("img");
-	oilEl.src = "./icons/oil-marker.png";
-
-	oilEl.onload = () => {
-		map.addImage("oil-marker", oilEl);
-
-		// Add a data source containing one point feature.
-		map.addSource("markerOil", {
-			type: "geojson",
-			data: oilGeoData,
-		});
-
-		// Add a layer to use the image to represent the data.
-		map.addLayer({
-			id: "markerOil",
-			type: "symbol",
-			source: "markerOil",
-			layout: {
-				"icon-image": "oil-marker",
-				"icon-overlap": "always",
-			},
-		});
-	};
-
-	const zonaInfoContainer3 = document.createElement("div");
-	zonaInfoContainer3.className = "zona_container";
-	zonaInfoContainer3.dataset.value = 6;
-
-	zonaInfoContainer3.innerHTML = `
-			<div>
-				<h3>Obala i lučice</h3>
-			</div>
-			<div class="lokacija">
-				<p>"Obala i lučice" d.o.o.</p>
-				<p>Andrije Medulića 2</p>
-				<p>23000 Zadar - HR</p>
-			</div>
-			<div>
-				<p>Telefon +385 23 316 924</p>
-				<p>Fax +385 23 212 892</p>
-				<p>Pauk služba +385 23 302-100</p>
-			</div>
-			<div>
-				<a href="https://indfo@oil.hr" target="_blank">info@oil.hr</a>
-				<a href="https://www.oil.hr" target="_blank">www.oil.hr</a>
-			</div>
-			<div>
-				<img src="./icons/phone.svg" alt="mobitel ikona" width="40px" height="40px"/>
-				<p>023/316-924</p>
-			</div>
-		`;
-	document.getElementById("map").appendChild(zonaInfoContainer3);
-
-	/*--------------onClick functinality for zones---------------------*/
-	const zoneData = await fetchMarkerData("./data/zoneInfo/info.json");
-	console.log(zoneData);
-
-	zoneData.informacije.forEach((zona) => {
-		const zonaInfoContainer = document.createElement("div");
-		zonaInfoContainer.className = "zona_container";
-		zonaInfoContainer.dataset.value = +zona.zona;
-		zonaInfoContainer.innerHTML = `
-			<div style="background-color: ${zona.backgroundColor}; color: ${
-			zona.textColor
-		}; 
-				">
-            	<h3>Zona ${zona.zona}</h3>
-				<p>${zona.parkirnaMjesta} parkirnih mjesta</p>
-			</div>
-			<p class="cijena">CIJENA PARKINGA <span>(sat vremena)</span><p/>
-			<div class="tarifa">
-				<p>${zona.cijena}</p>
-				<p>
-					<span>15.6. - 31.8.</span>
-					${zona.ljetnaCijena}
-				</p>
-			</div>
-			<p class="info">${zona.info}</p>
-			${
-				zona.broj
-					? `<div class="sms">
-				<div>
-					<img src="./icons/phone.svg" alt="mobitel ikona" width="40px" height="40px"/>
-					<p>Pošaljite registraciju na broj</p>
-				</div>
-				<p>${zona.broj}</p>
-			</div>`
-					: `<p class="ravnice">Plaćanje samo na automatskoj blagajni ili kod operatera</p>`
-			}
-				${
-					zona.brojInfo
-						? `
-				<div  class="phoneInfo">	
-					<img src="./icons/phone.svg" alt="mobitel ikona" width="40px" height="40px"/>	
-					<p>${zona.brojInfo}</p>
-				</div>`
-						: ""
-				}
-		`;
-		document.getElementById("map").appendChild(zonaInfoContainer);
-	});
-
-	map.on("click", "polygon-layer1", (e) => handlePolygonClick(e, 1));
-	map.on("click", "polygon-layer2", (e) => handlePolygonClick(e, 2));
-	map.on("click", "polygon-layer3", (e) => handlePolygonClick(e, 3));
-	map.on("click", "polygon-layer4", (e) => handlePolygonClick(e, 4));
-	map.on("click", "markerPauk", (e) => handlePolygonClick(e, 5));
-	map.on("click", "markerOil", (e) => handlePolygonClick(e, 6));
-
-	function handlePolygonClick(event, zoneId) {
-		console.log(event);
-
-		const infoContainer = document.querySelector(`[data-value="${zoneId}"]`);
-
-		const allInfoContainers = document.querySelectorAll(".zona_container");
-
-		allInfoContainers.forEach((container) => {
-			console.log(+container.dataset.value);
-
-			if (+container.dataset.value !== +zoneId)
-				container.classList.remove("active");
-		});
-
-		if (infoContainer) {
-			infoContainer.classList.toggle("active");
-		}
-	}
-
 	/*-----------------adding sms info--------------------------*/
 	const messageInfo = document.createElement("div");
-	messageInfo.className = "sms_container";
+	messageInfo.className = "threeD_container";
 	messageInfo.innerHTML = `
 			<div class="option3D">
-				<img class="dimension_icon" src="./icons/3d_icon.svg" alt="mobitel ikona" width="40px" height="40px"/>
-			</div>
-			<div class="message_info">
-				<img src="./icons/phone.svg" alt="mobitel ikona" width="40px" height="40px"/>
-				<p>SMS PARKING</p>
-			</div>
-			<div class="numbers_info">
-				<p>Pošaljite registraciju automobila na broj</p>
-				<ul>
-					<li>
-						ZONA 0 - 708239
-					</li>
-					<li>
-						ZONA 1 - 708231
-					</li>
-					<li>
-						ZONA 2 - 708232
-					</li>
-					<li>
-						ZONA 3 - 708233
-					</li>
-				</ul>
+				<img class="dimension_icon" src="./icons/3d_icon.svg" alt="mobitel ikona" width="60px" height="60px"/>
 			</div>
 		`;
 
 	document.getElementById("map").appendChild(messageInfo);
-
-	/*------------------adding onCLick removal of all markers------*/
-	const toggleMarkersButton = document.querySelector("#toggleMarkers");
-	const togglePaukButton = document.querySelector("#togglePauk");
-	const toggleOilButton = document.querySelector("#toggleOil");
-
-	let markersVisible = true;
-	let paukVisible = true;
-	let oilVisible = true;
-
-	toggleMarkersButton.addEventListener("click", () => {
-		markersVisible = !markersVisible;
-		toggleLayerVisibility("markers", markersVisible);
-	});
-	togglePaukButton.addEventListener("click", () => {
-		paukVisible = !paukVisible;
-		toggleLayerVisibility("markerPauk", paukVisible);
-	});
-
-	toggleOilButton.addEventListener("click", () => {
-		oilVisible = !oilVisible;
-		toggleLayerVisibility("markerOil", oilVisible);
-	});
-
-	function toggleLayerVisibility(layerId, visible) {
-		if (visible) {
-			map.setLayoutProperty(layerId, "visibility", "visible");
-		} else {
-			map.setLayoutProperty(layerId, "visibility", "none");
-		}
-	}
 
 	/*---------------------------add 3D functionality----------------- */
 	const option3D = document.querySelector(".option3D");
@@ -527,3 +241,45 @@ async function init() {
 }
 
 init();
+
+function linesToEndpoints(linesGeoJSON) {
+	const points = [];
+
+	linesGeoJSON.features.forEach((feature) => {
+		if (feature.geometry.type !== "LineString") return;
+
+		const coords = feature.geometry.coordinates;
+
+		const start = coords[0];
+		const end = coords[coords.length - 1];
+
+		points.push({
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: start,
+			},
+		});
+
+		points.push({
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: end,
+			},
+		});
+	});
+	console.log(points);
+	return {
+		type: "FeatureCollection",
+		features: points,
+	};
+}
+
+// const lines = JSON.parse(fs.readFileSync("./data/zone/zona1.json"));
+// const endpoints = linesToEndpoints(lines);
+
+// fs.writeFileSync(
+// 	"./data/zone/zona1points.json",
+// 	JSON.stringify(endpoints, null, 2),
+// );

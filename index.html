@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -20,33 +20,26 @@
 		<script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@watergis/maplibre-gl-terradraw@0.6.4/dist/maplibre-gl-terradraw.umd.js"></script>
 		<script src="app.js" defer></script>
-		<title>Document</title>
+		<title>Osijek - interaktivna karta</title>
 	</head>
 	<body>
 		<header>
 			<div class="logo_container">
-				<img src="./icons/logo.png" alt="oil logo" width="70" height="70" />
-				<div>
-					<img
-						src="./icons/arrowLeft.svg"
-						alt="arr left"
-						alt=""
-						width="44"
-						height="44"
-					/>
-					<h1>
-						Interaktiva
-						<span>parking karta</span>
-					</h1>
-				</div>
+				<img
+					src="./icons/osijek-bike-logo.png"
+					class="logo"
+					alt="oil logo"
+					width="70"
+					height="70"
+				/>
 			</div>
-			<div id="buttons-container">
+			<!-- <div id="buttons-container">
 				<button id="toggleMarkers">Automati</button>
 				<button id="togglePauk">Pauk</button>
 				<button id="toggleOil">Ured</button>
-			</div>
+			</div> -->
 		</header>
-		<div id="map" style="width: 100%; height: 750px"></div>
+		<div id="map" style="width: 100%; height: 100vh"></div>
 		<!-- <img id="oil" src="./icons/oil-marker.png" />
 		<img id="pauk" src="./icons/towtruck.png" /> -->
 	</body>

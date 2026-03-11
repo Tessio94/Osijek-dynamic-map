@@ -6,7 +6,7 @@
 }
 
 /* -----------------header------------------- */
-header {
+/* header {
 	padding: 10px 30px;
 	display: flex;
 	align-items: center;
@@ -32,6 +32,13 @@ header .logo_container h1 {
 	font-size: 18px;
 	font-weight: 600;
 	text-transform: uppercase;
+} */
+
+.logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
 }
 
 #buttons-container {
@@ -261,17 +268,46 @@ header .logo_container h1 {
 	display: block;
 }
 
-/* ---------------message info--------------------------------- */
-.sms_container {
+/* ----------------3D style--------------------------------- */
+.threeD_container {
 	position: absolute;
 	bottom: 10%;
 	left: 10%;
-	right: 5%;
+	/* right: 5%; */
 	display: flex;
 	pointer-events: none;
 }
 
-.message_info {
+.option3D {
+	height: 80px;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-transform: uppercase;
+	border-radius: 10px;
+	border: 4px solid #ffffff;
+	background-color: #7690c9;
+	font-size: 14px;
+	padding: 10px;
+	pointer-events: auto;
+	cursor: pointer;
+}
+.option3D img {
+	transition: all 0.5s ease;
+}
+
+.option3D:hover img {
+	transform: scale(1.1);
+}
+
+/* ----------------3D style--------------------------------- */
+/* .routeStartEnd {
+	border-radius: 100%;
+	background-color: #ba0909;
+} */
+
+/* .message_info {
 	height: 60px;
 	width: fit-content;
 	display: flex;
@@ -295,7 +331,7 @@ header .logo_container h1 {
 .message_info:hover + .numbers_info {
 	transform: translateX(0px);
 	opacity: 1;
-}
+} */
 
 .numbers_info {
 	/* position: absolute;
@@ -313,7 +349,9 @@ header .logo_container h1 {
 	opacity: 0;
 	transform: translateX(-150px);
 	z-index: 10;
-	transition: transform 0.5s ease, opacity 0.5s ease;
+	transition:
+		transform 0.5s ease,
+		opacity 0.5s ease;
 }
 
 .numbers_info p {
@@ -438,30 +476,6 @@ header .logo_container h1 {
 	text-decoration: none;
 }
 
-/* ----------------3D style--------------------------------- */
-.option3D {
-	height: 60px;
-	width: fit-content;
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	text-transform: uppercase;
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	border-right: 1px solid rgba(82, 82, 82, 0.575);
-	background-color: white;
-	font-size: 14px;
-	padding: 10px;
-	pointer-events: auto;
-	cursor: pointer;
-}
-.option3D img {
-	transition: all 0.5s ease;
-}
-
-.option3D:hover img {
-	transform: scale(1.1);
-}
 /* ---------------responsive styling------------------------ */
 @media only screen and (max-width: 630px) {
 	.numbers_info {
