@@ -66,7 +66,8 @@ async function init() {
 		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
 			"line-color": "#ba0909",
-			"line-width": 5,
+			"line-width": 9,
+			"line-opacity": 0.55,
 		},
 	});
 
@@ -77,7 +78,8 @@ async function init() {
 		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
 			"line-color": "#000000",
-			"line-width": 5,
+			"line-width": 9,
+			"line-opacity": 0.55,
 		},
 	});
 
@@ -88,7 +90,8 @@ async function init() {
 		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
 			"line-color": "#1322f2",
-			"line-width": 5,
+			"line-width": 9,
+			"line-opacity": 0.55,
 		},
 	});
 
@@ -212,8 +215,44 @@ async function init() {
 	};
 	/*-----------------adding sms info--------------------------*/
 	const messageInfo = document.createElement("div");
-	messageInfo.className = "threeD_container";
+	messageInfo.className = "info-container";
 	messageInfo.innerHTML = `
+			<div class="map-info-container">	
+				<h4 class="legend-title">Karta biciklističkih staza i ruta</h4>
+				<div class="legend-container">
+					<h5 class="legend-info-title">Kazalo:</h5>
+					<div class="legend-info">
+						<div>
+							<div class="red-line"></div>
+							<p>Prometno označena biciklistička staza</p>
+						</div>			
+						<div>
+							<div class="black-line"></div>
+							<p>Neoznačena staza</p>
+						</div>			
+						<div>
+							<div class="blue-line"></div>
+							<p>Prometno označena biciklistička zona</p>
+						</div>			
+						<div>
+							<div class="red-circle circle"><span></span></div>
+							<p>Početak i kraj biciklističke staze</p>
+						</div>			
+						<div>
+							<div class="black-circle circle"><span></span></div>
+							<p>Početak i kraj neoznačene staze</p>
+						</div>			
+						<div>
+							<div class="red-black-circle circle"><span></span></div>
+							<p>Spoj biciklističke staze i neoznačane staze</p>
+						</div>			
+						<div>
+							<div class="blue-circle circle"><span></span></div>
+							<p>Početak i kraj biciklističke zone</p>
+						</div>			
+					</div>
+				</div>
+			</div>
 			<div class="option3D">
 				<img class="dimension_icon" src="./icons/3d_icon.svg" alt="mobitel ikona" width="60px" height="60px"/>
 			</div>
