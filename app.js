@@ -218,20 +218,23 @@ async function init() {
 	messageInfo.className = "info-container";
 	messageInfo.innerHTML = `
 			<div class="map-info-container">	
+				<div class="downArr">
+						<img  src="./icons/downArr.svg" alt="legenda ikona" width="30px" height="30px"/>
+				</div>
 				<h4 class="legend-title">Karta biciklističkih staza i ruta</h4>
 				<div class="legend-container">
 					<h5 class="legend-info-title">Kazalo:</h5>
 					<div class="legend-info">
 						<div>
-							<div class="red-line"></div>
+							<div class="red-line line"></div>
 							<p>Prometno označena biciklistička staza</p>
 						</div>			
 						<div>
-							<div class="black-line"></div>
+							<div class="black-line line"></div>
 							<p>Neoznačena staza</p>
 						</div>			
 						<div>
-							<div class="blue-line"></div>
+							<div class="blue-line line"></div>
 							<p>Prometno označena biciklistička zona</p>
 						</div>			
 						<div>
@@ -252,6 +255,9 @@ async function init() {
 						</div>			
 					</div>
 				</div>
+			</div>
+			<div class="optionMapContainer">
+					<img  src="./icons/legend.svg" alt="legenda ikona" width="50px" height="50px"/>
 			</div>
 			<div class="option3D">
 				<img class="dimension_icon" src="./icons/3d_icon.svg" alt="mobitel ikona" width="60px" height="60px"/>
@@ -276,6 +282,19 @@ async function init() {
 			map.setBearing(0);
 			dimensionIcon.src = "./icons/3d_icon.svg";
 		}
+	});
+
+	/*---------------------------add legend functionality----------------- */
+	const optionlegend = document.querySelector(".optionMapContainer");
+	const exitLegendIcon = document.querySelector(".downArr");
+	const legend = document.querySelector(".map-info-container");
+
+	optionlegend.addEventListener("click", function () {
+		legend.classList.toggle("showLegend");
+	});
+
+	exitLegendIcon.addEventListener("click", function () {
+		legend.classList.toggle("showLegend");
 	});
 }
 
