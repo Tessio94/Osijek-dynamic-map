@@ -1,0 +1,96 @@
+{
+	"type": "FeatureCollection",
+	"name": "biciklisticki_pravci",
+	"description": ".gis.PjesackoBiciklistickiPravac",
+	"crs": {
+		"type": "name",
+		"properties": { "name": "urn:ogc:def:crs:EPSG::3765" }
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 145,
+				"kategorija": null,
+				"oznaka": "-",
+				"lokacija": "DALMATINSKA",
+				"završni sloj": null,
+				"napomena": null,
+				"širina": null,
+				"duljina": 14,
+				"površina": 0,
+				"pozicija": null,
+				"tip": null,
+				"ukupna duljina": 14,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": null,
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[664237.472742314566858, 5050193.855126632377505],
+						[664236.882734596030787, 5050195.976275277324021],
+						[664235.207979548955336, 5050199.512192953377962],
+						[664228.110287884366699, 5050202.777968560345471]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 146,
+				"kategorija": null,
+				"oznaka": "-",
+				"lokacija": "DALMATINSKA",
+				"završni sloj": null,
+				"napomena": null,
+				"širina": null,
+				"duljina": 12,
+				"površina": 0,
+				"pozicija": null,
+				"tip": null,
+				"ukupna duljina": 12,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": null,
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[664237.472742314566858, 5050193.855126632377505],
+						[664235.758167540421709, 5050194.838713373988867],
+						[664226.379197637434117, 5050198.683897294104099]
+					]
+				]
+			}
+		}
+	]
+}

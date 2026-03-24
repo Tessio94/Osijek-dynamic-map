@@ -1,0 +1,481 @@
+{
+	"type": "FeatureCollection",
+	"name": "biciklisticki_pravci",
+	"description": ".gis.PjesackoBiciklistickiPravac",
+	"crs": {
+		"type": "name",
+		"properties": { "name": "urn:ogc:def:crs:EPSG::3765" }
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 83,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "Biljska cesta",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": 2.5,
+				"duljina": 347,
+				"površina": 867,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 694,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "21.10.2025.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[672246.66118758614175, 5049870.694166023284197],
+						[672236.767430722946301, 5049859.742013395763934],
+						[672226.935153872123919, 5049848.407715681008995],
+						[672203.323207574896514, 5049822.143050020560622],
+						[672194.338687736890279, 5049811.715325692668557],
+						[672175.972188627463765, 5049790.224865441210568],
+						[672162.436528498423286, 5049774.412544238381088],
+						[672146.109645601478405, 5049754.321977216750383],
+						[672137.231954696471803, 5049744.547115491703153],
+						[672132.530200661043637, 5049737.124732010066509],
+						[672129.835028307861648, 5049732.326680751517415],
+						[672124.728181181941181, 5049723.65905316080898],
+						[672118.821489990106784, 5049717.49263355601579],
+						[672114.475001790560782, 5049711.734571545384824],
+						[672111.282876946614124, 5049709.715080359950662],
+						[672107.702134358347394, 5049706.588518206961453],
+						[672100.773291656631045, 5049699.959693189710379],
+						[672095.410052113817073, 5049693.077289172448218],
+						[672084.998031162424013, 5049680.342521369457245],
+						[672079.210284011438489, 5049673.657280619256198],
+						[672065.240027539199218, 5049656.795772258192301],
+						[672048.662530867848545, 5049637.465331516228616],
+						[672036.063164046034217, 5049622.653748826123774],
+						[672029.749716927180998, 5049614.126716640777886],
+						[672023.0046092052944, 5049606.057707388885319]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 134,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "Ulica Josipa Huttlera",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 386,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 772,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "11817 OSIJEK,6766 OSIJEK,7211 OSIJEK,7294 OSIJEK,7343 OSIJEK,8950\/1 OSIJEK,8982\/1 OSIJEK,8986 OSIJEK",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[672972.762466421467252, 5048415.631662205792964],
+						[672971.898423825390637, 5048396.984592192806304],
+						[672973.744900472927839, 5048394.827048813924193],
+						[672987.883643886074424, 5048392.724040641449392],
+						[672975.056891793385148, 5048338.506713063456118],
+						[672964.601958973682486, 5048316.443239631131291],
+						[672960.609238146105781, 5048306.85346488468349],
+						[672942.89144836505875, 5048315.733478571288288],
+						[672915.622956403647549, 5048265.870208449661732],
+						[672880.741681347601116, 5048200.307304084300995],
+						[672881.629740953445435, 5048198.182357916608453],
+						[672833.328111625043675, 5048106.17661539465189],
+						[672834.240745109971613, 5048104.268717914819717]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 135,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "Ulica Josipa Huttlera",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 198,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 396,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "7344 OSIJEK,8982\/1 OSIJEK",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[672972.762466421467252, 5048415.631662205792964],
+						[672972.466383921448141, 5048428.730773793533444],
+						[672972.854621325968765, 5048454.83293697424233],
+						[672973.440976532991044, 5048501.743464050814509],
+						[672973.655502379639074, 5048537.908865060657263],
+						[672974.320670541143045, 5048575.573567015118897],
+						[672974.7100376104936, 5048613.746196045540273]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 150,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "JOSIPA KOZARCA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 121,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 242,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2664 JOSIPOVAC,2697\/1 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[663883.190099084167741, 5050331.567336216568947],
+						[663883.123402732191607, 5050333.727735341526568],
+						[663883.708536465768702, 5050335.873873373493552],
+						[663882.329399603419006, 5050337.925960744731128],
+						[663877.081536790588871, 5050340.771692298352718],
+						[663769.069839382776991, 5050337.162808633409441]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 152,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "OSJEČKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 1123,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 2246,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2664 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[663766.027605981566012, 5050356.099821465089917],
+						[663592.926175664528273, 5050348.760842710733414],
+						[663466.04708148620557, 5050343.414075385779142],
+						[663462.730359858949669, 5050343.437630631960928],
+						[663453.862418870441616, 5050346.511378677561879],
+						[663405.889536278205924, 5050370.938620786182582],
+						[663337.150068669114262, 5050405.626301115378737],
+						[663294.093382722930983, 5050427.106300985440612],
+						[663243.649655762477778, 5050452.327447215095162],
+						[663208.216959996381775, 5050469.527278892695904],
+						[663174.31474594597239, 5050487.06111067533493],
+						[663097.753764234716073, 5050525.982866807840765],
+						[663076.154388069058768, 5050536.896789544261992],
+						[663057.847136063850485, 5050548.043161922134459],
+						[663047.96112650912255, 5050554.867502897046506],
+						[663025.32398192351684, 5050573.117500667460263],
+						[663017.016842658515088, 5050582.265859718434513],
+						[663002.591153068933636, 5050601.173669634386897],
+						[662996.623739941045642, 5050609.611739332787693],
+						[662990.012372076744214, 5050619.264937572181225],
+						[662973.839567872928455, 5050643.963085599243641],
+						[662944.096906636608765, 5050692.168417294509709],
+						[662938.124455294106156, 5050701.009282942861319],
+						[662926.53427310299594, 5050717.39844836294651],
+						[662908.273092586081475, 5050743.887719663791358],
+						[662880.878132460871711, 5050784.763485594652593],
+						[662873.696646822383627, 5050796.392355712130666],
+						[662868.591077789664268, 5050807.827258487232029],
+						[662862.054080602712929, 5050823.301146280951798],
+						[662852.25889917020686, 5050846.718789286911488]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 155,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "POŠTANSKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 202,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 404,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2668 JOSIPOVAC,2669 JOSIPOVAC,2709 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[662508.511434329207987, 5051304.560700688511133],
+						[662437.230135678313673, 5051385.303457750938833],
+						[662402.598463560920209, 5051421.199023850262165],
+						[662372.023706887848675, 5051453.001399524509907]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 157,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "POŠTANSKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 339,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 678,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2668 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[662336.64706230070442, 5051487.45447726547718],
+						[662313.53224065550603, 5051513.545663646422327],
+						[662271.103840261464939, 5051557.935799579136074],
+						[662226.828477639472112, 5051604.056026408448815],
+						[662182.259599635493942, 5051649.832808011211455],
+						[662126.882357704802416, 5051705.856116742826998],
+						[662101.183116078842431, 5051731.841152705252171]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 159,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "OSJEČKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 52,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 104,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2668 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[662083.847158547607251, 5051716.388043669983745],
+						[662067.756873914389871, 5051731.19839645549655],
+						[662047.562707836041227, 5051751.859527546912432],
+						[662046.535550816915929, 5051753.217206327244639]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 161,
+				"kategorija": "Pješačko-biciklističke staze",
+				"oznaka": "-",
+				"lokacija": "NASELJE MATIJE GUPCA II",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 464,
+				"površina": 0,
+				"pozicija": null,
+				"tip": "dvosmjeran",
+				"ukupna duljina": 928,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2697\/1 JOSIPOVAC,653 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[661749.720564701943658, 5052038.056639211252332],
+						[661665.835075463866815, 5052126.722660841420293],
+						[661631.85517544276081, 5052161.743075873702765],
+						[661630.030856510275044, 5052164.456751272082329],
+						[661634.075016509159468, 5052175.88057048805058],
+						[661620.205176885705441, 5052190.982697067782283],
+						[661609.359306105994619, 5052201.299521112814546],
+						[661601.230542531819083, 5052201.457619478926063],
+						[661599.174593228148296, 5052202.416797272861004],
+						[661591.974824963603169, 5052209.500888688489795],
+						[661556.854105432284996, 5052243.103499731980264],
+						[661534.827312643639743, 5052265.397152669727802],
+						[661493.569765550550073, 5052307.685051035135984],
+						[661455.952170342672616, 5052346.967599690891802],
+						[661436.322878326056525, 5052367.593911724165082]
+					]
+				]
+			}
+		}
+	]
+}

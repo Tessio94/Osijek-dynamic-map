@@ -5,18 +5,52 @@
 	font-family: "Roboto", sans-serif;
 }
 
-.logo {
+body {
+	overflow: hidden;
+}
+
+:root {
+	--app-blue: #7690c9;
+	--red: #ba0909;
+	--black: #000000;
+	--blue: #1322f2;
+	--green: #13f213;
+	--orange: #f28a13;
+	--pink: #f213f2;
+}
+
+/* ----------------map--------------------------------- */
+.maplibregl-control-container {
+	z-index: 1000;
+	position: relative;
+}
+/* ----------------heading--------------------------------- */
+/* .logo {
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 100;
+} */
+
+.title {
+	background: rgba(0, 0, 0, 0.575);
+	color: white;
+	padding: 15px;
+	border-radius: 100px;
+	font-size: 28px;
+	font-weight: 600;
+	position: absolute;
+	top: 15px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
 }
 
-/* ----------------3D style--------------------------------- */
+/* ----------------legend--------------------------------- */
 .info-container {
 	position: absolute;
-	bottom: 10%;
-	left: 5%;
+	bottom: 30px;
+	left: 30px;
 	/* right: 5%; */
 	display: flex;
 	flex-direction: row;
@@ -26,27 +60,19 @@
 }
 
 .map-info-container {
-	z-index: 100;
+	min-width: 300px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
-}
-
-.legend-title {
-	background: rgba(0, 0, 0, 0.575);
-	color: white;
-	padding: 20px;
-	border-radius: 100px;
-	font-size: 32px;
-	font-weight: 600;
+	z-index: 100;
 }
 
 .legend-container {
 	background: rgba(0, 0, 0, 0.575);
 	color: white;
-	width: 80%;
 	padding: 20px;
+	pointer-events: all;
 }
 
 .legend-info-title {
@@ -56,18 +82,39 @@
 	margin-bottom: 15px;
 }
 
-.legend-info {
+/* .legend-info {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
 	gap: 10px;
-}
+} */
 
 .legend-info > div {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: 10px;
+}
+
+.legend-info label {
+	font-size: 16px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding: 10px 0px;
+	cursor: pointer;
+}
+
+.legend-info input {
+	width: 17px;
+	height: 17px;
+	accent-color: var(--app-blue);
+	flex-shrink: 0;
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 
 .legend-info p {
@@ -77,26 +124,44 @@
 .red-line {
 	height: 3px;
 	width: 45px;
-	background: #ba0909;
+	background: var(--red);
 }
 
 .black-line {
 	height: 3px;
 	width: 45px;
-	background: #000000;
+	background: var(--black);
 }
 
 .blue-line {
 	height: 3px;
 	width: 45px;
-	background: #1322f2;
+	background: var(--blue);
+}
+
+.green-line {
+	height: 3px;
+	width: 45px;
+	background: var(--green);
+}
+
+.orange-line {
+	height: 3px;
+	width: 45px;
+	background: var(--orange);
+}
+
+.pink-line {
+	height: 3px;
+	width: 45px;
+	background: var(--pink);
 }
 
 .line {
 	flex-shrink: 0;
 }
 
-.circle {
+/* .circle {
 	width: 45px;
 	display: flex;
 	align-items: center;
@@ -112,21 +177,38 @@
 }
 
 .red-circle > span {
-	background: #ba0909;
+	background: var(--red);
 }
 
 .black-circle > span {
-	background: #000000;
+	background: var(--black);
 }
 
 .red-black-circle > span {
-	background: linear-gradient(to bottom right, #ba0909 0 50%, #000000 50% 100%);
+	background: linear-gradient(
+		to bottom right,
+		var(--red) 0 50%,
+		var(--black) 50% 100%
+	);
 }
 
 .blue-circle > span {
-	background: #1322f2;
+	background: var(--blue);
 }
 
+.green-circle > span {
+	background: var(--green);
+}
+
+.orange-circle > span {
+	background: var(--orange);
+}
+
+.pink-circle > span {
+	background: var(--pink);
+} */
+
+/* ----------------3D style--------------------------------- */
 .option3D {
 	height: 80px;
 	width: 80px;
@@ -135,7 +217,7 @@
 	justify-content: center;
 	border-radius: 10px;
 	border: 4px solid #ffffff;
-	background-color: #7690c9;
+	background-color: var(--app-blue);
 	padding: 10px;
 	pointer-events: auto;
 	cursor: pointer;
@@ -157,7 +239,7 @@
 	justify-content: center;
 	border-radius: 10px;
 	border: 4px solid #ffffff;
-	background-color: #7690c9;
+	background-color: var(--app-blue);
 	pointer-events: auto;
 	cursor: pointer;
 	display: none;
@@ -176,7 +258,62 @@
 	display: none;
 }
 
-@media screen and (max-width: 750px) {
+/* --------------------------sidebar------------------ */
+
+.sidebar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	width: 300px;
+	height: 100%;
+	background: white;
+	overflow-y: auto;
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	z-index: 100;
+	/* display: none; */
+}
+
+.sidebar.show {
+	transform: translateX(0);
+	opacity: 1;
+	visibility: visible;
+}
+
+#sidebar .heading {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding: 15px;
+	margin-bottom: 15px;
+	background-color: var(--app-blue);
+}
+
+.heading button {
+	display: flex;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+}
+
+#sidebar h3 {
+	color: white;
+}
+
+#sidebar-content {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	gap: 20px;
+}
+
+@media screen and (max-width: 1280px) {
 	.optionMapContainer {
 		display: flex;
 	}
@@ -190,7 +327,6 @@
 		flex-direction: row;
 		gap: 60px;
 		align-items: end;
-		pointer-events: none;
 	}
 
 	.map-info-container {
@@ -228,7 +364,7 @@
 		position: absolute;
 		right: 20px;
 		top: 20px;
-		background-color: #7690c9;
+		background-color: var(--app-blue);
 		align-items: center;
 		justify-content: center;
 		border-radius: 100%;
@@ -238,7 +374,44 @@
 	}
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1280px) {
+	.logo {
+		height: 50px;
+		width: 50px;
+	}
+
+	.option3D {
+		height: 60px;
+		width: 60px;
+	}
+
+	.option3D img {
+		height: 40px;
+		width: 40px;
+	}
+
+	.optionMapContainer {
+		height: 60px;
+		width: 60px;
+	}
+
+	.optionMapContainer img {
+		height: 40px;
+		width: 40px;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.title {
+		font-size: 25px;
+		width: 100%;
+		top: 0;
+		border-radius: 0;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 450px) {
 	.legend-title {
 		font-size: 24px;
 		padding-right: 60px;
@@ -246,5 +419,9 @@
 
 	.legend-info-title {
 		font-size: 20px;
+	}
+
+	.title {
+		font-size: 22px;
 	}
 }

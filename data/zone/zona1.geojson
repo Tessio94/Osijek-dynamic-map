@@ -1,0 +1,102 @@
+{
+	"type": "FeatureCollection",
+	"name": "biciklisticki_pravci",
+	"description": ".gis.PjesackoBiciklistickiPravac",
+	"crs": {
+		"type": "name",
+		"properties": { "name": "urn:ogc:def:crs:EPSG::3765" }
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 147,
+				"kategorija": "Ceste za mješoviti promet",
+				"oznaka": "-",
+				"lokacija": "DALMATINSKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 369,
+				"površina": 0,
+				"pozicija": null,
+				"tip": "jednosmjeran",
+				"ukupna duljina": 369,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": null,
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[664228.110287884366699, 5050202.777968560345471],
+						[664078.882942091673613, 5050256.746971886605024],
+						[664010.967924491502345, 5050281.063585042022169],
+						[663937.633225189754739, 5050307.522831571288407],
+						[663895.408292960142717, 5050323.341650729067624],
+						[663888.600148197961971, 5050326.866473445668817],
+						[663885.476074147620238, 5050328.849858837202191],
+						[663883.190120907733217, 5050331.567321624606848]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 149,
+				"kategorija": "Ceste za mješoviti promet",
+				"oznaka": "-",
+				"lokacija": "DALMATINSKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 378,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "jednosmjeran",
+				"ukupna duljina": 378,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": null,
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[663871.502901626517996, 5050327.700649955309927],
+						[664004.881290519377217, 5050279.353315217420459],
+						[664102.032742434181273, 5050243.332597956992686],
+						[664226.379172267625108, 5050198.683862922713161]
+					]
+				]
+			}
+		}
+	]
+}

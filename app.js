@@ -1,10 +1,12 @@
+// import createJson from "./helpers/createJson.js";
+
 const middleOfMap = [18.69680928071636, 45.55459080341755];
 
 async function init() {
 	const map = new maplibregl.Map({
 		style: "https://tiles.openfreemap.org/styles/liberty",
 		center: middleOfMap,
-		zoom: 14,
+		zoom: 12,
 		container: "map",
 	});
 
@@ -15,15 +17,27 @@ async function init() {
 			showZoom: true,
 			showCompass: true,
 		}),
+		"top-right",
 	);
+
+	// Geolocation control
+	map.addControl(
+		new maplibregl.GeolocateControl({
+			positionOptions: {
+				enableHighAccuracy: true,
+			},
+			trackUserLocation: true,
+		}),
+		"top-right",
+	);
+
+	map.addControl(new maplibregl.FullscreenControl("top-right"));
 
 	map.doubleClickZoom.disable();
 
 	map.on("click", (e) => {
 		const lng = e.lngLat.lng;
 		const lat = e.lngLat.lat;
-
-		console.log([lng, lat]);
 	});
 
 	/*----------------------fetching lines json data...............*/
@@ -37,10 +51,34 @@ async function init() {
 	}
 
 	const results = await Promise.all([
-		fetchData("./data/zone/zona0.json"),
-		fetchData("./data/zone/zona1.json"),
-		fetchData("./data/zone/zona2.json"),
+		fetchData("./data/zone/zona0.geojson"),
+		fetchData("./data/zone/zona1.geojson"),
+		fetchData("./data/zone/zona2.geojson"),
+		fetchData("./data/zone/zona3.geojson"),
+		fetchData("./data/zone/zona4.geojson"),
+		fetchData("./data/zone/zona5.geojson"),
 	]);
+
+	proj4.defs(
+		"EPSG:3765",
+		"+proj=tmerc +lat_0=0 +lon_0=16.5 +k=0.9999 +x_0=500000 +y_0=0 +ellps=GRS80 +units=m +no_defs",
+	);
+
+	// convert coordinates
+	function convertCoords(coords) {
+		return coords.map((line) =>
+			line.map((point) => proj4("EPSG:3765", "EPSG:4326", point)),
+		);
+	}
+
+	// apply to result GeoJSON
+	results.forEach((result) =>
+		result.features.forEach((f) => {
+			if (f.geometry.type === "MultiLineString") {
+				f.geometry.coordinates = convertCoords(f.geometry.coordinates);
+			}
+		}),
+	);
 
 	/*----------------------adding json data...............*/
 	map.addSource("polygon0", {
@@ -58,6 +96,19 @@ async function init() {
 		data: results[2],
 	});
 
+	map.addSource("polygon3", {
+		type: "geojson",
+		data: results[3],
+	});
+	map.addSource("polygon4", {
+		type: "geojson",
+		data: results[4],
+	});
+	map.addSource("polygon5", {
+		type: "geojson",
+		data: results[5],
+	});
+
 	/*----------------------adding lines-----------------*/
 	map.addLayer({
 		id: "polygon-layer0",
@@ -66,8 +117,8 @@ async function init() {
 		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
 			"line-color": "#ba0909",
-			"line-width": 9,
-			"line-opacity": 0.55,
+			"line-width": 8,
+			"line-opacity": 0.7,
 		},
 	});
 
@@ -78,8 +129,8 @@ async function init() {
 		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
 			"line-color": "#000000",
-			"line-width": 9,
-			"line-opacity": 0.55,
+			"line-width": 8,
+			"line-opacity": 0.7,
 		},
 	});
 
@@ -90,12 +141,49 @@ async function init() {
 		layout: { "line-join": "round", "line-cap": "round" },
 		paint: {
 			"line-color": "#1322f2",
-			"line-width": 9,
-			"line-opacity": 0.55,
+			"line-width": 8,
+			"line-opacity": 0.7,
+		},
+	});
+
+	map.addLayer({
+		id: "polygon-layer3",
+		type: "line",
+		source: "polygon3",
+		layout: { "line-join": "round", "line-cap": "round" },
+		paint: {
+			"line-color": "#13f213",
+			"line-width": 8,
+			"line-opacity": 0.7,
+		},
+	});
+
+	map.addLayer({
+		id: "polygon-layer4",
+		type: "line",
+		source: "polygon4",
+		layout: { "line-join": "round", "line-cap": "round" },
+		paint: {
+			"line-color": "#f28a13",
+			"line-width": 8,
+			"line-opacity": 0.7,
+		},
+	});
+
+	map.addLayer({
+		id: "polygon-layer5",
+		type: "line",
+		source: "polygon5",
+		layout: { "line-join": "round", "line-cap": "round" },
+		paint: {
+			"line-color": "#f213f2",
+			"line-width": 8,
+			"line-opacity": 0.7,
 		},
 	});
 
 	/*-----------------adding circle and points--------------------------*/
+
 	async function fetchMarkerData(path) {
 		const response = await fetch(path);
 		if (!response.ok) {
@@ -105,12 +193,23 @@ async function init() {
 		return data;
 	}
 
-	const pointsData0 = await fetchMarkerData("./data/zone/zona0points.json");
-	const pointsData1 = await fetchMarkerData("./data/zone/zona1points.json");
-	const pointsData2 = await fetchMarkerData("./data/zone/zona2points.json");
-	const arrowPoints = await fetchMarkerData("./data/zone/arrowEndpoints.json");
-	const circlePoints = await fetchMarkerData(
-		"./data/zone/circleGradientEndpoints.json",
+	const pointsData0 = await fetchMarkerData(
+		"./data/zone/tocke2/zona0points.geojson",
+	);
+	const pointsData1 = await fetchMarkerData(
+		"./data/zone/tocke2/zona1points.geojson",
+	);
+	const pointsData2 = await fetchMarkerData(
+		"./data/zone/tocke2/zona2points.geojson",
+	);
+	const pointsData3 = await fetchMarkerData(
+		"./data/zone/tocke2/zona3points.geojson",
+	);
+	const pointsData4 = await fetchMarkerData(
+		"./data/zone/tocke2/zona4points.geojson",
+	);
+	const pointsData5 = await fetchMarkerData(
+		"./data/zone/tocke2/zona5points.geojson",
 	);
 
 	map.addSource("markers0", {
@@ -163,96 +262,110 @@ async function init() {
 			"circle-stroke-color": "#ffffff",
 		},
 	});
+	map.addSource("markers3", {
+		type: "geojson",
+		data: pointsData3,
+	});
 
-	const el = document.createElement("img");
-	el.src = "./icons/arrow.svg";
+	map.addLayer({
+		id: "markers3",
+		type: "circle",
+		source: "markers3",
+		paint: {
+			"circle-radius": 7,
+			"circle-color": "#13f213",
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff",
+		},
+	});
 
-	el.onload = () => {
-		map.addImage("custom-marker", el);
+	map.addSource("markers4", {
+		type: "geojson",
+		data: pointsData4,
+	});
 
-		map.addSource("arrowEndpoints", {
-			type: "geojson",
-			data: arrowPoints,
-		});
+	map.addLayer({
+		id: "markers4",
+		type: "circle",
+		source: "markers4",
+		paint: {
+			"circle-radius": 7,
+			"circle-color": "#f28a13",
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff",
+		},
+	});
 
-		map.addLayer({
-			id: "arrowEndpoints",
-			type: "symbol",
-			source: "arrowEndpoints",
-			layout: {
-				"icon-image": "custom-marker",
-				"icon-overlap": "always",
-				"icon-size": 1.5,
-				"icon-rotate": ["+", ["get", "bearing"], 30],
-				"icon-rotation-alignment": "map",
-			},
-		});
-	};
+	map.addSource("markers5", {
+		type: "geojson",
+		data: pointsData5,
+	});
 
-	const el2 = document.createElement("img");
-	el2.src = "./icons/circleGradient.svg";
+	map.addLayer({
+		id: "markers5",
+		type: "circle",
+		source: "markers5",
+		paint: {
+			"circle-radius": 7,
+			"circle-color": "#f213f2",
+			"circle-stroke-width": 2,
+			"circle-stroke-color": "#ffffff",
+		},
+	});
 
-	el2.onload = () => {
-		map.addImage("custom-marker2", el2);
-
-		map.addSource("circleGradientEndpoints", {
-			type: "geojson",
-			data: circlePoints,
-		});
-
-		map.addLayer({
-			id: "circleGradientEndpoints",
-			type: "symbol",
-			source: "circleGradientEndpoints",
-			layout: {
-				"icon-image": "custom-marker2",
-				"icon-overlap": "always",
-				"icon-size": 0.65,
-				"icon-rotate": ["+", ["get", "bearing"], 30],
-				"icon-rotation-alignment": "map",
-			},
-		});
-	};
 	/*-----------------adding sms info--------------------------*/
 	const messageInfo = document.createElement("div");
 	messageInfo.className = "info-container";
 	messageInfo.innerHTML = `
-			<div class="map-info-container">	
+			<div class="map-info-container">
 				<div class="downArr">
 						<img  src="./icons/downArr.svg" alt="legenda ikona" width="30px" height="30px"/>
 				</div>
-				<h4 class="legend-title">Karta biciklističkih staza i ruta</h4>
 				<div class="legend-container">
 					<h5 class="legend-info-title">Kazalo:</h5>
 					<div class="legend-info">
 						<div>
-							<div class="red-line line"></div>
-							<p>Prometno označena biciklistička staza</p>
-						</div>			
+							<input type="checkbox" id="walk-bike"  />
+							<label for="walk-bike">
+								<div class="red-line line"></div>
+								Pješačko-biciklističke staze
+							</label>
+						</div>
 						<div>
-							<div class="black-line line"></div>
-							<p>Neoznačena staza</p>
-						</div>			
+							<input type="checkbox" id="mixed-traffic"  />
+							<label for="mixed-traffic">
+								<div class="black-line line"></div>
+								Ceste za mješoviti promet
+							</label>
+						</div>
 						<div>
-							<div class="blue-line line"></div>
-							<p>Prometno označena biciklistička zona</p>
-						</div>			
+							<input type="checkbox" id="bike-way"  />
+							<label for="bike-way">
+								<div class="blue-line line"></div>
+								Biciklističke staze
+							</label>
+						</div>
 						<div>
-							<div class="red-circle circle"><span></span></div>
-							<p>Početak i kraj biciklističke staze</p>
-						</div>			
+							<input type="checkbox" id="bike-lane"  />
+							<label for="bike-lane">
+								<div class="green-line line"></div>
+								Biciklističke trake
+							</label>
+						</div>
 						<div>
-							<div class="black-circle circle"><span></span></div>
-							<p>Početak i kraj neoznačene staze</p>
-						</div>			
+							<input type="checkbox" id="bike-road"  />
+							<label for="bike-road">
+								<div class="orange-line line"></div>
+								Biciklističke ceste
+							</label>
+						</div>
 						<div>
-							<div class="red-black-circle circle"><span></span></div>
-							<p>Spoj biciklističke staze i neoznačane staze</p>
-						</div>			
-						<div>
-							<div class="blue-circle circle"><span></span></div>
-							<p>Početak i kraj biciklističke zone</p>
-						</div>			
+							<input type="checkbox" id="unmarked"  />
+							<label for="unmarked">
+								<div class="pink-line line"></div>
+								Nezonačeno
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -296,48 +409,102 @@ async function init() {
 	exitLegendIcon.addEventListener("click", function () {
 		legend.classList.toggle("showLegend");
 	});
+
+	/*---------------------------add toggle functionality----------------- */
+
+	function setupLayerToggle(toggleElements) {
+		toggleElements.forEach((toggleElement) => {
+			const checkbox = document.getElementById(toggleElement.checkbox);
+			checkbox.checked = true;
+
+			checkbox.addEventListener("change", () => {
+				toggleElement.layer.forEach((lay) => {
+					map.setLayoutProperty(
+						lay,
+						"visibility",
+						checkbox.checked ? "visible" : "none",
+					);
+				});
+			});
+		});
+	}
+
+	setupLayerToggle([
+		{
+			checkbox: "walk-bike",
+			layer: ["polygon-layer0", "markers0"],
+		},
+		{
+			checkbox: "mixed-traffic",
+			layer: ["polygon-layer1", "markers1"],
+		},
+		{
+			checkbox: "bike-way",
+			layer: ["polygon-layer2", "markers2"],
+		},
+		{
+			checkbox: "bike-lane",
+			layer: ["polygon-layer3", "markers3"],
+		},
+		{
+			checkbox: "bike-road",
+			layer: ["polygon-layer4", "markers4"],
+		},
+		{
+			checkbox: "unmarked",
+			layer: ["polygon-layer5", "markers5"],
+		},
+	]);
+	/*-----------------adding lines onclick functionality--------------------------*/
+	const layers = [
+		"polygon-layer0",
+		"polygon-layer1",
+		"polygon-layer2",
+		"polygon-layer3",
+		"polygon-layer4",
+		"polygon-layer5",
+	];
+
+	layers.forEach((layer) => {
+		map.on("click", layer, (e) => {
+			const feature = e.features[0];
+			showSidebar(feature.properties);
+		});
+	});
+
+	function showSidebar(props) {
+		const sidebar = document.getElementById("sidebar");
+		const content = document.getElementById("sidebar-content");
+
+		content.innerHTML = `
+		<p><b>Lokacija:</b> ${props["lokacija"] || "-"}</p>
+		<p><b>Kategorija:</b> ${props["kategorija"] || "-"}</p>
+		<p><b>Tip:</b> ${props["tip"] || "-"}</p>
+		<p><b>Širina:</b> ${props["širina"] || "-"}</p>
+		<p><b>Duljina:</b> ${props["duljina"] || "-"}</p>
+		<p><b>Status:</b> ${props["status"] || "-"}</p>
+		<p><b>Završni sloj:</b> ${props["završni sloj"] || "-"}</p>
+		<p><b>Datum podataka:</b> ${props["datum podatka"] || "-"}</p>
+		<p><b>Napomena:</b> ${props["napomena"] || "-"}</p>
+	`;
+
+		sidebar.classList.add("show");
+	}
+
+	layers.forEach((layer) => {
+		map.on("mouseenter", layer, () => {
+			map.getCanvas().style.cursor = "pointer";
+		});
+
+		map.on("mouseleave", layer, () => {
+			map.getCanvas().style.cursor = "";
+		});
+	});
+
+	const closeButton = document.getElementById("close");
+	closeButton.addEventListener("click", () => {
+		sidebar.classList.remove("show");
+	});
 }
 
 init();
-
-function linesToEndpoints(linesGeoJSON) {
-	const points = [];
-
-	linesGeoJSON.features.forEach((feature) => {
-		if (feature.geometry.type !== "LineString") return;
-
-		const coords = feature.geometry.coordinates;
-
-		const start = coords[0];
-		const end = coords[coords.length - 1];
-
-		points.push({
-			type: "Feature",
-			geometry: {
-				type: "Point",
-				coordinates: start,
-			},
-		});
-
-		points.push({
-			type: "Feature",
-			geometry: {
-				type: "Point",
-				coordinates: end,
-			},
-		});
-	});
-	console.log(points);
-	return {
-		type: "FeatureCollection",
-		features: points,
-	};
-}
-
-// const lines = JSON.parse(fs.readFileSync("./data/zone/zona1.json"));
-// const endpoints = linesToEndpoints(lines);
-
-// fs.writeFileSync(
-// 	"./data/zone/zona1points.json",
-// 	JSON.stringify(endpoints, null, 2),
-// );

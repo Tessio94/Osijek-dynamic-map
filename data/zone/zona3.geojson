@@ -1,0 +1,162 @@
+{
+	"type": "FeatureCollection",
+	"name": "biciklisticki_pravci",
+	"description": ".gis.PjesackoBiciklistickiPravac",
+	"crs": {
+		"type": "name",
+		"properties": { "name": "urn:ogc:def:crs:EPSG::3765" }
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 114,
+				"kategorija": "Biciklističke trake",
+				"oznaka": "-",
+				"lokacija": "Vinogradska",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": 2.0,
+				"duljina": 810,
+				"površina": 1620,
+				"pozicija": null,
+				"tip": "dvosmjeran",
+				"ukupna duljina": 1620,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "21.10.2025.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[676311.001915966160595, 5047118.504451218061149],
+						[676288.588850629050285, 5047125.667794464156032],
+						[676274.233750463929027, 5047130.280258548446],
+						[676258.399545629508793, 5047135.721745449118316],
+						[676234.427861638600007, 5047143.587637426331639],
+						[676195.977298601297662, 5047156.472432964481413],
+						[676171.206799827050418, 5047164.647720105014741],
+						[676152.393978421925567, 5047171.000647551380098],
+						[676120.235461526317522, 5047181.580187384970486],
+						[676100.329351573484018, 5047188.358539187349379],
+						[676069.388614080380648, 5047198.578218006528914],
+						[676033.725920299300924, 5047210.371019960381091],
+						[676011.639054115861654, 5047217.793098936788738],
+						[675988.693059360492043, 5047225.343330288305879],
+						[675970.512189044966362, 5047231.424265957437456],
+						[675934.516021772753447, 5047243.519131785258651],
+						[675882.620509224478155, 5047260.667607476934791],
+						[675840.996772753307596, 5047274.610223101451993],
+						[675810.632187319919467, 5047284.684253746643662],
+						[675770.495922822738066, 5047297.98481273278594],
+						[675727.659392794128507, 5047312.238482805900276],
+						[675680.416413587750867, 5047327.867712710052729],
+						[675630.807228777324781, 5047344.492146158590913],
+						[675592.751881932490505, 5047357.057267908006907],
+						[675549.396943768719211, 5047371.505578421056271],
+						[675542.266064963419922, 5047373.872219388373196]
+					]
+				]
+			}
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 115,
+				"kategorija": "Biciklističke trake",
+				"oznaka": "-",
+				"lokacija": "Vinogradska",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": 2.0,
+				"duljina": 70,
+				"površina": 140,
+				"pozicija": null,
+				"tip": "dvosmjeran",
+				"ukupna duljina": 140,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "21.10.2025.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": null,
+				"upravitelj (eki)": null,
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": null,
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[675501.368563933996484, 5047387.259547853842378],
+						[675471.215403768816032, 5047397.607855199836195],
+						[675441.412732326425612, 5047407.594478132203221],
+						[675435.453269111225381, 5047409.500350018963218]
+					]
+				]
+			}
+		},
+
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 158,
+				"kategorija": "Biciklističke trake",
+				"oznaka": "-",
+				"lokacija": "OSJEČKA",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 23,
+				"površina": 0,
+				"pozicija": "Desno",
+				"tip": "dvosmjeran",
+				"ukupna duljina": 46,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "2668 JOSIPOVAC",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[662101.183116078842431, 5051731.841152705252171],
+						[662099.768509594839998, 5051731.071933115832508],
+						[662084.502071261173114, 5051716.63572624605149]
+					]
+				]
+			}
+		}
+	]
+}

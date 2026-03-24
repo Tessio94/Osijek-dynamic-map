@@ -1,0 +1,61 @@
+{
+	"type": "FeatureCollection",
+	"name": "biciklisticki_pravci",
+	"description": ".gis.PjesackoBiciklistickiPravac",
+	"crs": {
+		"type": "name",
+		"properties": { "name": "urn:ogc:def:crs:EPSG::3765" }
+	},
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 142,
+				"kategorija": "Biciklističke ceste",
+				"oznaka": "-",
+				"lokacija": "Ulica Svete Ane",
+				"završni sloj": "asfalt",
+				"napomena": null,
+				"širina": null,
+				"duljina": 101,
+				"površina": 0,
+				"pozicija": null,
+				"tip": null,
+				"ukupna duljina": 101,
+				"status": "usklađeno s pravilnikom",
+				"datum podatka": "20.03.2026.",
+				"status komentar": null,
+				"kategorija (eki)": "JAVNE PROMETNE POVRŠINE NA KOJIMA NIJE DOPUŠTEN PROMET MOT. VOZILA",
+				"vrsta (eki)": "biciklističke i pješačke staze",
+				"vlasništvo (eki)": "GRAD OSIJEK",
+				"upravitelj (eki)": "Grad Osijek",
+				"dozvola za uređenje (eki)": null,
+				"dozvola za građenje (eki)": null,
+				"dozvola za uporabu (eki)": null,
+				"rješenje imovinskopravnih odnosa (eki)": null,
+				"snimka izvedenog stanja (eki)": null,
+				"napomena (eki)": null,
+				"katastar (eki)": "3784 TENJA",
+				"GMT": null
+			},
+			"geometry": {
+				"type": "MultiLineString",
+				"coordinates": [
+					[
+						[675283.53348436485976, 5042834.80800131522119],
+						[675285.553821841953322, 5042832.006899450905621],
+						[675288.118542609037831, 5042826.271275469101965],
+						[675292.449552253587171, 5042816.897831946611404],
+						[675296.272206842317246, 5042809.16939842607826],
+						[675300.744305128464475, 5042801.366923469118774],
+						[675309.527584131574258, 5042788.167656674981117],
+						[675321.541650246130303, 5042770.311874071136117],
+						[675327.640741516486742, 5042761.156230949796736],
+						[675329.507897593663074, 5042759.524817219935358],
+						[675338.775645375833847, 5042751.431868894957006]
+					]
+				]
+			}
+		}
+	]
+}
