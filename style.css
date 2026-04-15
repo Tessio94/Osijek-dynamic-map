@@ -16,7 +16,7 @@ body {
 	--app-blue2: #3a4650;
 	--red: #d61111;
 	--black: #414141;
-	--blue: #1322f2;
+	--blue: #005fac;
 	--green: #12bb12;
 	--orange: #f28a13;
 	--pink: #c510c5;
@@ -116,7 +116,7 @@ body {
 
 .legend-info label {
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: 500;
 	color: var(--app-blue2);
 	display: flex;
 	flex-direction: row;
@@ -373,6 +373,39 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
+	.logo {
+		height: 50px;
+		width: 50px;
+	}
+
+	.option3D {
+		height: 60px;
+		width: 60px;
+	}
+
+	.option3D img {
+		height: 40px;
+		width: 40px;
+	}
+
+	.optionMapContainer {
+		height: 60px;
+		width: 60px;
+	}
+
+	.optionMapContainer img {
+		height: 40px;
+		width: 40px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.title {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1000px) {
 	.optionMapContainer {
 		display: flex;
 	}
@@ -435,39 +468,6 @@ body {
 		pointer-events: auto;
 		cursor: pointer;
 		z-index: 1000;
-	}
-}
-
-@media screen and (max-width: 1280px) {
-	.logo {
-		height: 50px;
-		width: 50px;
-	}
-
-	.option3D {
-		height: 60px;
-		width: 60px;
-	}
-
-	.option3D img {
-		height: 40px;
-		width: 40px;
-	}
-
-	.optionMapContainer {
-		height: 60px;
-		width: 60px;
-	}
-
-	.optionMapContainer img {
-		height: 40px;
-		width: 40px;
-	}
-}
-
-@media screen and (max-width: 1150px) {
-	.title {
-		display: none;
 	}
 }
 

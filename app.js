@@ -118,7 +118,7 @@ async function init() {
 			source: "polygon0",
 			layout: { "line-join": "round", "line-cap": "round" },
 			paint: {
-				"line-color": "#ba0909",
+				"line-color": "#d61111",
 				"line-width": 8,
 				"line-opacity": 0.7,
 			},
@@ -130,7 +130,7 @@ async function init() {
 			source: "polygon1",
 			layout: { "line-join": "round", "line-cap": "round" },
 			paint: {
-				"line-color": "#f213f2",
+				"line-color": "#c510c5",
 				"line-width": 8,
 				"line-opacity": 0.7,
 			},
@@ -142,7 +142,7 @@ async function init() {
 			source: "polygon2",
 			layout: { "line-join": "round", "line-cap": "round" },
 			paint: {
-				"line-color": "#1322f2",
+				"line-color": "#005fac",
 				"line-width": 8,
 				"line-opacity": 0.7,
 			},
@@ -154,7 +154,7 @@ async function init() {
 			source: "polygon3",
 			layout: { "line-join": "round", "line-cap": "round" },
 			paint: {
-				"line-color": "#13f213",
+				"line-color": "#12bb12",
 				"line-width": 8,
 				"line-opacity": 0.7,
 			},
@@ -178,7 +178,7 @@ async function init() {
 			source: "polygon5",
 			layout: { "line-join": "round", "line-cap": "round" },
 			paint: {
-				"line-color": "#000000",
+				"line-color": "#414141",
 				"line-width": 8,
 				"line-opacity": 0.7,
 			},
@@ -225,7 +225,7 @@ async function init() {
 			source: "markers0",
 			paint: {
 				"circle-radius": 7,
-				"circle-color": "#ba0909",
+				"circle-color": "#d61111",
 				"circle-stroke-width": 2,
 				"circle-stroke-color": "#ffffff",
 			},
@@ -242,7 +242,7 @@ async function init() {
 			source: "markers1",
 			paint: {
 				"circle-radius": 7,
-				"circle-color": "#f213f2",
+				"circle-color": "#c510c5",
 				"circle-stroke-width": 2,
 				"circle-stroke-color": "#ffffff",
 			},
@@ -259,7 +259,7 @@ async function init() {
 			source: "markers2",
 			paint: {
 				"circle-radius": 7,
-				"circle-color": "#1322f2",
+				"circle-color": "#005fac",
 				"circle-stroke-width": 2,
 				"circle-stroke-color": "#ffffff",
 			},
@@ -275,7 +275,7 @@ async function init() {
 			source: "markers3",
 			paint: {
 				"circle-radius": 7,
-				"circle-color": "#13f213",
+				"circle-color": "#12bb12",
 				"circle-stroke-width": 2,
 				"circle-stroke-color": "#ffffff",
 			},
@@ -309,7 +309,7 @@ async function init() {
 			source: "markers5",
 			paint: {
 				"circle-radius": 7,
-				"circle-color": "#000000",
+				"circle-color": "#414141",
 
 				"circle-stroke-width": 2,
 				"circle-stroke-color": "#ffffff",
@@ -365,7 +365,7 @@ async function init() {
 								<input type="checkbox" id="unmarked"  />
 								<label for="unmarked">
 									<div class="black-line line"></div>
-									Nezonačeno
+									Neoznačeno
 								</label>
 							</div>
 						</div>
@@ -396,7 +396,7 @@ async function init() {
 			if (option) {
 				map.setPitch(60);
 				map.setBearing(30);
-				dimensionIcon.src = "./icons/2d_icon.svg";
+				dimensionIcon.src = "./icons/2d_icon_new.svg";
 			} else {
 				map.setPitch(0);
 				map.setBearing(0);
