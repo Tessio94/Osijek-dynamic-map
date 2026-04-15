@@ -14,8 +14,12 @@
 			rel="stylesheet"
 		/>
 		<link
-			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@watergis/maplibre-gl-terradraw@0.6.4/dist/maplibre-gl-terradraw.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;800&display=swap"
+			rel="stylesheet"
 		/>
 		<script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@watergis/maplibre-gl-terradraw@0.6.4/dist/maplibre-gl-terradraw.umd.js"></script>
@@ -24,19 +28,39 @@
 		<title>Osijek - interaktivna karta</title>
 	</head>
 	<body>
-		<header>
-			<!-- <div class="logo_container">
+		<header class="header">
+			<img
+				src="./icons/map-logo.svg"
+				alt="Biciklističke staze grada Osijeka logo"
+				class="main-logo"
+				width="135"
+				height="auto"
+			/>
+			<h4 class="title">Biciklističke staze grada Osijeka</h4>
+			<div class="logo-container">
 				<img
-					src="./icons/osijek-bike-logo.png"
-					class="logo"
-					alt="oil logo"
-					width="70"
-					height="70"
+					src="./icons/grad-logo.svg"
+					alt="Grada Osijek logo"
+					class="city-logo"
+					height="80"
+					width="auto"
 				/>
-			</div> -->
-			<h4 class="title">Karta biciklističkih staza i ruta</h4>
+				<img
+					src="./icons/sustainable-logo.svg"
+					alt="Održivi urbani razvoj - ITU logo"
+					class="sustainable-logo"
+					height="80"
+					width="auto"
+				/>
+				<img
+					src="./icons/eu-finance-logo.svg"
+					alt="Sufinacira Europska unija logo"
+					class="eu-logo"
+					height="40"
+					width="auto"
+				/>
+			</div>
 		</header>
-		<div id="map" style="width: 100%; height: 100vh"></div>
 		<div id="sidebar" class="sidebar">
 			<div class="heading">
 				<button id="close">
@@ -58,5 +82,6 @@
 			</div>
 			<div id="sidebar-content"></div>
 		</div>
+		<div id="map" style="width: 100%; height: 100vh"></div>
 	</body>
 </html>
